@@ -1,0 +1,30 @@
+{
+    "preset": "psr12",
+    "rules": {
+        "single_quote": true,
+        "declare_strict_types": true,
+        "not_operator_with_space": true,
+        "function_typehint_space": true,
+        "whitespace_after_comma_in_array": true,
+        "phpdoc_single_line_var_spacing": true,
+        "object_operator_without_whitespace": true,
+        "no_useless_nullsafe_operator": true,
+        "no_useless_else": true,
+        "no_empty_statement":  true,
+        "no_empty_phpdoc": true,
+        "no_empty_comment":  true,
+        "native_function_type_declaration_casing": true,
+        "method_chaining_indentation": true,
+        "date_time_immutable": true,
+        "array_indentation": true,
+        "fully_qualified_strict_types": true,
+        "trailing_comma_in_multiline": {
+            "elements": [
+                "arguments",
+                "arrays",
+                "match",
+                "parameters"
+            ]
+        }
+    }
+}

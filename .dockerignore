@@ -1,0 +1,10 @@
+*
+!/app
+!/boostrap
+!/config
+!/public
+!/routes
+!/storage
+!/artisan
+!/composer.json
+!/composer.lock
