@@ -43,6 +43,11 @@ Build the front-end assets
 vendor/bin/sail npm build
 ```
 
+Run the migration to create the database table
+```shell
+vendor/bin/sail artisan migrate
+```
+
 The app is accessible on
 ```http request
 localhost

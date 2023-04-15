@@ -14,6 +14,10 @@ class FindCityAction
     {
         $cities = $geocoding->getCityDetails((string)$request->string('name'));
 
+        if (empty($cities)) {
+            return new JsonResponse(['message' => 'City not found!'], 404);
+        }
+
         return new JsonResponse($cities);
     }
 }

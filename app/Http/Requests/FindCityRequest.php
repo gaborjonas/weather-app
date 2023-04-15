@@ -17,4 +17,13 @@ class FindCityRequest extends FormRequest
             'name' => 'required|min:2|max:35',
         ];
     }
+
+    public  function messages(): array
+    {
+        return [
+            'name.required' => 'Please enter a city',
+            'name.min' => 'Please enter more than 2 characters',
+            'name.max' => 'Please enter fewer than 35 characters',
+        ];
+    }
 }
