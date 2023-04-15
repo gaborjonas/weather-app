@@ -5,16 +5,18 @@
                 <input
                     type="text"
                     class="form-control"
-                    placeholder="Type..."
+                    placeholder="Type in a city"
                     v-model.trim="city"
-                    aria-label="Recipient's username"
-                    aria-describedby="button-addon2"
+                    aria-label="Type in a city"
+                    aria-describedby="At least two characters"
                     v-on:keyup.enter="getCities"
                 />
                 <button
                     type="button"
                     class="btn btn-warning"
                     @click="getCities"
+                    aria-label="Find a city"
+                    aria-describedby="Click the button to find a city"
                 >
                     Find
                 </button>
@@ -26,6 +28,7 @@
                     <select
                         class="form-select"
                         aria-label="Select city"
+                        aria-describedby="Select a city from the list"
                         v-model="selected"
                     >
                         <option value="default">Select city</option>
@@ -39,12 +42,19 @@
                     </select>
                 </div>
                 <div>
-                    <button type="submit" class="btn btn-warning me-1">
+                    <button
+                        type="submit"
+                        class="btn btn-warning me-1"
+                        aria-label="Add city"
+                        aria-describedby="Click the button to add a city"
+                    >
                         Add City
                     </button>
                     <button
                         type="submit"
                         class="btn btn-dark"
+                        aria-label="Reset the form"
+                        aria-describedby="Click the button to reset the form"
                         @click="resetForm"
                     >
                         Reset
@@ -52,7 +62,6 @@
                 </div>
             </form>
         </div>
-        <div class="row"></div>
     </div>
 </template>
 
