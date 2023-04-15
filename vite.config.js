@@ -11,7 +11,7 @@ export default defineConfig({
             refresh: true,
         }),
         purge({
-            templates: ["vue"],
+            templates: ["vue", "blade"],
         }),
     ],
     resolve: {
