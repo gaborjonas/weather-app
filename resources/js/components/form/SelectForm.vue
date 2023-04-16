@@ -15,7 +15,7 @@
                     aria-describedby="Select a city from the list"
                     v-model="selected"
                 >
-                    <option value="default" selected>Select city</option>
+                    <option value="placeholder" selected>Select city...</option>
                     <option
                         v-for="(city, index) in cities"
                         :key="index"
@@ -53,7 +53,7 @@ export default {
     },
     data() {
         return {
-            selected: "default",
+            selected: "placeholder",
             alert: {
                 type: "",
                 message: "",
@@ -63,24 +63,28 @@ export default {
     },
     methods: {
         async addCity() {
-            try {
-                const response = await axios.post("/api/city", {
-                    name: this.selected,
-                });
-                this.showSelectForm = false;
-                this.alert.message = response.data.message;
-                this.alert.type = "alert-success";
-                this.showAlert = true;
-                this.$emit("loadForecasts");
-                this.$emit("toggleSelectForm");
-            } catch (e) {
-                if (e.response) {
-                    this.alert.message = e.response.data.message;
-                    this.alert.type = "alert-danger";
-
+            if (this.selected === "placeholder") {
+                alert("Please select a city");
+            } else {
+                try {
+                    const response = await axios.post("/api/city", {
+                        name: this.selected,
+                    });
+                    this.showSelectForm = false;
+                    this.alert.message = response.data.message;
+                    this.alert.type = "alert-success";
                     this.showAlert = true;
-                } else if (e.request) {
-                    alert("Something went wrong, please try again later");
+                    this.$emit("loadForecasts");
+                    this.$emit("toggleSelectForm");
+                } catch (e) {
+                    if (e.response) {
+                        this.alert.message = e.response.data.message;
+                        this.alert.type = "alert-danger";
+
+                        this.showAlert = true;
+                    } else if (e.request) {
+                        alert("Something went wrong, please try again later");
+                    }
                 }
             }
         },

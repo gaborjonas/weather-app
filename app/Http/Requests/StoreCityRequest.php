@@ -21,7 +21,7 @@ class StoreCityRequest extends FormRequest
     /**
      * @return array<string,string>
      */
-    public  function messages(): array
+    public function messages(): array
     {
         return [
             'name.required' => 'Please enter a city',

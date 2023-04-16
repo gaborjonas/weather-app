@@ -3,8 +3,8 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build",
-        "lint": "eslint resources/js/**/**",
-        "lint-fix": "eslint resources/js/**/** --fix"
+        "lint": "eslint resources/js/**/**/**",
+        "lint-fix": "eslint resources/js/**/**/** --fix"
     },
     "devDependencies": {
         "@erbelion/vite-plugin-laravel-purgecss": "^0.1.4",

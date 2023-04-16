@@ -18,7 +18,10 @@ class FindCityRequest extends FormRequest
         ];
     }
 
-    public  function messages(): array
+    /**
+     * @return array<string,string>
+     */
+    public function messages(): array
     {
         return [
             'name.required' => 'Please enter a city',

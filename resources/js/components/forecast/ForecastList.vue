@@ -43,12 +43,12 @@ export default {
         },
     },
     methods: {
-        setActiveLink(link) {
-            this.activeLink = link;
-            if (link === "All") {
+        setActiveLink(cityName) {
+            this.activeLink = cityName;
+            if (cityName === "All") {
                 this.filteredForecasts = this.forecasts;
             } else {
-                this.filterBy(link);
+                this.filterBy(cityName);
             }
         },
         filterBy(cityName) {
@@ -57,10 +57,6 @@ export default {
             );
             this.filteredForecasts = [];
             this.filteredForecasts.push(cityToShow);
-        },
-
-        resetFiltered() {
-            this.activeLink = "All";
         },
     },
 };

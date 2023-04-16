@@ -37,7 +37,11 @@ export default {
         },
         activeLink: {
             type: String,
+            default: "All",
         },
+    },
+    mounted() {
+        this.$emit("selectedLink", "All");
     },
 };
 </script>

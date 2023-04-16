@@ -8,6 +8,7 @@ use App\Contracts\ForecastInterface;
 use App\Contracts\GeocodingInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\Promise;
+
 readonly class OpenWeatherService implements GeocodingInterface, ForecastInterface
 {
     public function __construct(
