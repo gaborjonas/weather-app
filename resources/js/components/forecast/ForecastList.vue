@@ -31,15 +31,21 @@ export default {
     data() {
         return {
             filteredForecasts: [],
+            filteredList: [],
             activeLink: "All",
         };
     },
     mounted() {
-        this.filteredForecasts = this.forecasts;
+        this.setActiveLink("All");
     },
     computed: {
         links() {
             return this.forecasts.map((forecast) => forecast.city.name);
+        },
+    },
+    watch: {
+        forecasts() {
+            this.setActiveLink("All");
         },
     },
     methods: {

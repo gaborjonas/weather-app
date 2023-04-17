@@ -19,7 +19,7 @@ readonly class CityRepository implements FindByInterface, GetByIdInterface
      * @param array<int,string> $columns
      * @return array<int,string>
      */
-    public function getAll(array $columns): array
+    public function getAll(array $columns = []): array
     {
         return $this->db
             ->table(self::TABLE)
@@ -31,7 +31,7 @@ readonly class CityRepository implements FindByInterface, GetByIdInterface
      * @param array<int,string> $columns
      * @return array<int,string>
      */
-    public function getById(int $id, array $columns): array
+    public function getById(int $id, array $columns = []): array
     {
         return $this->db
             ->table(self::TABLE)

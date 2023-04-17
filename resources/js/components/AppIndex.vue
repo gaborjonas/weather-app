@@ -30,6 +30,7 @@ export default {
             try {
                 const response = await axios.get("/api/forecast");
                 this.forecasts = response.data;
+                this.showMessage = false;
             } catch (e) {
                 if (e.response.status === 404) {
                     this.showMessage = true;

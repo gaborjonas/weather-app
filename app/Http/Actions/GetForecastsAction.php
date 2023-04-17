@@ -14,9 +14,9 @@ class GetForecastsAction
     {
         $cities = $repository->getAll(['name']);
 
-        /*if (empty($city)) {
+        if (empty($cities)) {
             return new JsonResponse([], 404);
-        }*/
+        }
 
         $forecasts = $service->forecast($cities);
 

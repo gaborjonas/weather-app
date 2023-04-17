@@ -75,7 +75,7 @@ export default {
                     this.alert.type = "alert-success";
                     this.showAlert = true;
                     this.$emit("loadForecasts");
-                    this.$emit("toggleSelectForm");
+                    this.$emit("resetForm");
                 } catch (e) {
                     if (e.response) {
                         this.alert.message = e.response.data.message;
@@ -88,7 +88,6 @@ export default {
                 }
             }
         },
-        resetForm() {},
     },
 };
 </script>

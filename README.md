@@ -52,3 +52,29 @@ The app is accessible on
 ```http request
 localhost
 ```
+## Available scripts
+
+Check PHP coding standards
+```shell
+vendor/bin/sail composer lint
+```
+
+Fix PHP code formatting
+```shell
+vendor/bin/sail composer lint-fix
+```
+
+Run php tests
+```shell
+vendor/bin/sail composer test
+```
+
+Check JS/Vue coding standards
+```shell
+vendor/bin/sail npm lint
+```
+
+Fix NPM code formatting
+```shell
+vendor/bin/sail npm lint-fix
+```

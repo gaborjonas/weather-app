@@ -20,6 +20,10 @@ class GetForecastAction
 
         $forecasts = $service->forecast($city);
 
+        if (empty($forecasts)) {
+            return new JsonResponse([], 404);
+        }
+
         return new JsonResponse($forecasts);
     }
 }

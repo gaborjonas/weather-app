@@ -7,7 +7,7 @@
                     class="form-control"
                     :class="{ 'is-invalid': errorMessage.length > 0 }"
                     placeholder="Type in a city"
-                    v-model.trim="city"
+                    v-model.trim="cityInput"
                     aria-label="Type in a city"
                     aria-describedby="At least two characters"
                     v-on:keyup.enter="getCities"
@@ -28,9 +28,9 @@
         </div>
         <SelectForm
             v-if="showSelectForm"
-            :cities="cities"
+            :cities="foundCities"
             @load-forecasts="$emit('loadForecasts')"
-            @toggle-select-form="hideSelectForm"
+            @reset-form="resetForm"
         />
     </div>
 </template>
@@ -44,33 +44,34 @@ export default {
     components: { SelectForm },
     data() {
         return {
-            city: "",
-            cities: [],
+            cityInput: "",
+            foundCities: [],
             showSelectForm: false,
             errorMessage: "",
         };
     },
     methods: {
-        hideSelectForm() {
-            this.cities = [];
+        resetForm() {
+            this.foundCities = [];
             this.showSelectForm = false;
-            this.city = "";
+            this.cityInput = "";
         },
 
         async getCities() {
             try {
                 const response = await axios.get("/api/city/find", {
                     params: {
-                        name: this.city,
+                        name: this.cityInput,
                     },
                 });
 
                 if (response.data.length === 0) {
                     this.errorMessage = response.data.message;
                 } else {
-                    this.cities = response.data;
+                    this.foundCities = response.data;
                     this.showSelectForm = true;
                     this.selected = "";
+                    this.errorMessage = "";
                 }
             } catch (e) {
                 if (e.response) {
